@@ -267,9 +267,7 @@ static void main_window_load(Window *window) {
     text_layer_set_text(s_time_layer, "00:00");
 
     // Apply to TextLayer
-    // FONT_KEY_ROBOTO_BOLD_SUBSET_49 is great but too large for image in use
-    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49));  // think want roboto bold 28 - which is not a system font
-    //text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));  // think want roboto bold 28 - which is not a system font
+    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49));
     /* Consider GTextAlignmentLeft (with monospaced font) in cases where colon is proportional */
     text_layer_set_text_alignment(s_time_layer, GTextAlignmentRight);
 
