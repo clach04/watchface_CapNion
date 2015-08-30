@@ -18,9 +18,8 @@
 #define BG_IMAGE RESOURCE_ID_IMAGE_CAPNION
 
 #define CLOCK_POS GRect(0, -15, 144, 168) /* probably taller than really needed */
-#define BT_POS GRect(0, 15, 144, 168) /* probably taller than really needed */
+#define BT_POS GRect(0, 40, 144, 168) /* probably taller than really needed */
 #define DATE_POS GRect(0, 65, 144, 168) /* probably taller than really needed */
-//#define BAT_POS GRect(0, 0, 144, 168) /* probably taller than really needed */
 #define BAT_POS GRect(0, 125, 144, 168) /* probably taller than really needed */
 
 /* PebbleKit JS, Message Keys, Pebble config keys */
@@ -107,7 +106,7 @@ static void handle_bluetooth(bool connected)
     }
     else
     {
-        text_layer_set_text(s_bluetooth_layer, "BT Disconnected");
+        text_layer_set_text(s_bluetooth_layer, "No BT");
         if (config_time_vib_on_disconnect && (bluetooth_state != connected))
         {
             /* had BT connection then lost it, rather than started disconnected */
@@ -123,7 +122,7 @@ static void setup_bluetooth(Window *window)
     text_layer_set_text_color(s_bluetooth_layer, time_color);
     text_layer_set_background_color(s_bluetooth_layer, GColorClear);
     text_layer_set_font(s_bluetooth_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-    text_layer_set_text_alignment(s_bluetooth_layer, GTextAlignmentCenter);
+    text_layer_set_text_alignment(s_bluetooth_layer, GTextAlignmentRight);
     layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_bluetooth_layer));
     text_layer_set_text(s_bluetooth_layer, "");
 
