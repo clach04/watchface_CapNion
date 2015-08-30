@@ -223,7 +223,11 @@ static void update_time() {
         strftime(buffer, sizeof(buffer), "%H:%M", tick_time);
     } else {
         // 12 hour format
-        strftime(buffer, sizeof(buffer), "%I:%M", tick_time);
+        strftime(buffer, sizeof(buffer), "%I:%M", tick_time);  // produces leading zero for hour and minute
+        if (buffer[0] == '0')
+        {
+            memmove(&buffer[0], &buffer[1], sizeof(buffer) - 1); // remove leading zero
+        }
     }
 
     /* Update the date only when the day changes */
