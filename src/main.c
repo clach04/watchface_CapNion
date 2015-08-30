@@ -49,7 +49,7 @@ static bool bluetooth_state = false;
 
 #define MAX_DATE_STR "Thu, 00 Aug"
 #define MAX_TIME_STR "00:00"
-#define MAX_BAT_STR "Bat: ??%"
+#define MAX_BAT_STR "Bat: ??%"  // When Batter is 100, the percent symbol is deilberatly not shown (buffer full)
 
 
 static void in_recv_handler(DictionaryIterator *iterator, void *context)
