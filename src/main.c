@@ -17,7 +17,7 @@
     
 #define BG_IMAGE RESOURCE_ID_IMAGE_CAPNION
 
-#define CLOCK_POS GRect(0, 0, 144, 168) /* probably taller than really needed */
+#define CLOCK_POS GRect(0, -9, 140, 168) /* shorter width to deal with curved corner on real devices */
 #define BT_POS GRect(0, 15, 144, 168) /* probably taller than really needed */
 #define DATE_POS GRect(0, 65, 144, 168) /* probably taller than really needed */
 #define BAT_POS GRect(0, 0, 144, 168) /* probably taller than really needed */
@@ -267,7 +267,7 @@ static void main_window_load(Window *window) {
     text_layer_set_text(s_time_layer, "00:00");
 
     // Apply to TextLayer
-    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_CONDENSED_21));
+    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
     /* Consider GTextAlignmentLeft (with monospaced font) in cases where colon is proportional */
     text_layer_set_text_alignment(s_time_layer, GTextAlignmentRight);
 
