@@ -17,10 +17,11 @@
     
 #define BG_IMAGE RESOURCE_ID_IMAGE_CAPNION
 
-#define CLOCK_POS GRect(0, 0, 144, 168) /* probably taller than really needed */
+#define CLOCK_POS GRect(0, -15, 144, 168) /* probably taller than really needed */
 #define BT_POS GRect(0, 15, 144, 168) /* probably taller than really needed */
 #define DATE_POS GRect(0, 65, 144, 168) /* probably taller than really needed */
-#define BAT_POS GRect(0, 0, 144, 168) /* probably taller than really needed */
+//#define BAT_POS GRect(0, 0, 144, 168) /* probably taller than really needed */
+#define BAT_POS GRect(0, 125, 144, 168) /* probably taller than really needed */
 
 /* PebbleKit JS, Message Keys, Pebble config keys */
 // FIXME why can't this be generated from the json settings file into a header?
@@ -143,7 +144,7 @@ static void handle_battery(BatteryChargeState charge_state) {
         snprintf(battery_text, sizeof(battery_text), "Charging");
         text_layer_set_text_color(s_battery_layer, COLOR_FALLBACK(GColorGreen, time_color));
     } else {
-        snprintf(battery_text, sizeof(battery_text), "Bat: %d%%", charge_state.charge_percent);
+        snprintf(battery_text, sizeof(battery_text), "Bat:\n%d%%", charge_state.charge_percent);
 #ifdef PBL_PLATFORM_BASALT
         /* TODO Check charge level and change color? E.g. red at 10%/20% */
         if (charge_state.charge_percent <= 20)
@@ -167,7 +168,7 @@ static void setup_battery(Window *window)
     text_layer_set_text_color(s_battery_layer, time_color);
     text_layer_set_background_color(s_battery_layer, GColorClear);
     text_layer_set_font(s_battery_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-    text_layer_set_text_alignment(s_battery_layer, GTextAlignmentLeft);
+    text_layer_set_text_alignment(s_battery_layer, GTextAlignmentRight);
     layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_battery_layer));
     text_layer_set_text(s_battery_layer, MAX_BAT_STR);
 
@@ -267,7 +268,9 @@ static void main_window_load(Window *window) {
     text_layer_set_text(s_time_layer, "00:00");
 
     // Apply to TextLayer
-    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_CONDENSED_21));
+    // FONT_KEY_ROBOTO_BOLD_SUBSET_49 is great but too large for image in use
+    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49));  // think want roboto bold 28 - which is not a system font
+    //text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));  // think want roboto bold 28 - which is not a system font
     /* Consider GTextAlignmentLeft (with monospaced font) in cases where colon is proportional */
     text_layer_set_text_alignment(s_time_layer, GTextAlignmentRight);
 
