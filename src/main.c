@@ -49,7 +49,7 @@ static bool bluetooth_state = false;
 
 #define MAX_DATE_STR "Thu, 00 Aug"
 #define MAX_TIME_STR "00:00"
-#define MAX_BAT_STR "Bat: ??%"  // When Batter is 100, the percent symbol is deilberatly not shown (buffer full)
+#define MAX_BAT_STR "Bat: ??%"  // When Battery is 100, the percent symbol is deilberatly not shown (buffer full)
 
 
 static void in_recv_handler(DictionaryIterator *iterator, void *context)
@@ -143,7 +143,7 @@ static void handle_battery(BatteryChargeState charge_state) {
         snprintf(battery_text, sizeof(battery_text), "Charging");
         text_layer_set_text_color(s_battery_layer, COLOR_FALLBACK(GColorGreen, time_color));
     } else {
-        snprintf(battery_text, sizeof(battery_text), "Bat: %d%%", charge_state.charge_percent);
+        snprintf(battery_text, sizeof(battery_text), "Bat:\n%d%%", charge_state.charge_percent);
 #ifdef PBL_PLATFORM_BASALT
         /* TODO Check charge level and change color? E.g. red at 10%/20% */
         if (charge_state.charge_percent <= 20)
@@ -167,7 +167,7 @@ static void setup_battery(Window *window)
     text_layer_set_text_color(s_battery_layer, time_color);
     text_layer_set_background_color(s_battery_layer, GColorClear);
     text_layer_set_font(s_battery_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-    text_layer_set_text_alignment(s_battery_layer, GTextAlignmentLeft);
+    text_layer_set_text_alignment(s_battery_layer, GTextAlignmentRight);
     layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_battery_layer));
     text_layer_set_text(s_battery_layer, MAX_BAT_STR);
 
@@ -267,7 +267,9 @@ static void main_window_load(Window *window) {
     text_layer_set_text(s_time_layer, "00:00");
 
     // Apply to TextLayer
-    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
+    // FONT_KEY_ROBOTO_BOLD_SUBSET_49 is great but too large for image in use
+    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49));  // think want roboto bold 28 - which is not a system font
+    //text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));  // think want roboto bold 28 - which is not a system font
     /* Consider GTextAlignmentLeft (with monospaced font) in cases where colon is proportional */
     text_layer_set_text_alignment(s_time_layer, GTextAlignmentRight);
 
