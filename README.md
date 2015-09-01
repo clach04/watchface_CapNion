@@ -12,4 +12,6 @@ Acknowledgements
   * html/js for color configuration based on code by https://github.com/rgarth and Slate https://github.com/pebble/slate
   * Roboto Bold font from Google/Android and http://www.fontsquirrel.com/fonts/roboto
 
+NOTE works with watch firmware v3.3 (may not work with v3.2.1).
+
 No Store URL yet.
