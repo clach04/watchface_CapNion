@@ -18,10 +18,11 @@
 
 #define FONT_NAME RESOURCE_ID_FONT_ROBOTO_40
 
-#define CLOCK_POS GRect(0, -8, 144, 168) /* probably taller than really needed */
+#define RHS_OFFSET 3
+#define CLOCK_POS GRect(0, -8, 144 - RHS_OFFSET, 168) /* probably taller than really needed */
 #define BT_POS GRect(0, 40, 144, 168) /* probably taller than really needed */
-#define DATE_POS GRect(0, 65, 144, 168) /* probably taller than really needed */
-#define BAT_POS GRect(0, 125, 144, 168) /* probably taller than really needed */
+#define DATE_POS GRect(0, 65, 144 - RHS_OFFSET, 168) /* probably taller than really needed */
+#define BAT_POS GRect(0, 125, 144 - RHS_OFFSET, 168) /* probably taller than really needed */
 
 /* PebbleKit JS, Message Keys, Pebble config keys */
 // FIXME why can't this be generated from the json settings file into a header?
