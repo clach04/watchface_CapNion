@@ -10,5 +10,6 @@ Acknowledgements
 
   * Images based on drawings from IntroSpect37 http://introspect37.deviantart.com/art/Minion-Avengers-301405328
   * html/js for color configuration based on code by https://github.com/rgarth and Slate https://github.com/pebble/slate
+  * Roboto Bold font from Google/Android and http://www.fontsquirrel.com/fonts/roboto
 
 No Store URL yet.
