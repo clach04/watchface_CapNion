@@ -310,8 +310,8 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
 static void init()
 {
-    time_color = GColorBlack;
-    background_color = GColorWhite;
+    time_color = GColorWhite;
+    background_color = GColorBlack;
 
 #ifdef PBL_PLATFORM_BASALT
     /* TODO refactor */

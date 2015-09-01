@@ -8,29 +8,29 @@
         "configurable"
     ],
     "companyName": "clach04",
-    "longName": "Captain Minion",
+    "longName": "Captain Minion inverted",
     "projectType": "native",
     "resources": {
         "media": [
-            {
-                "file": "images/capnion.png",
-                "name": "IMAGE_CAPNION",
-                "type": "png"
-            },
             {
                 "file": "images/capnion_icon.png",
                 "menuIcon": true,
                 "name": "IMAGE_ICON",
                 "type": "png"
+            },
+            {
+                "file": "images/capnion.png",
+                "name": "IMAGE_CAPNION",
+                "type": "png"
             }
         ]
     },
     "sdkVersion": "3",
-    "shortName": "CapNion",
+    "shortName": "CapNion inv",
     "targetPlatforms": [
         "basalt"
     ],
-    "uuid": "1a5379d8-070b-48c4-96d4-e2c151d53661",
+    "uuid": "7df75c8c-223a-4c8c-a84f-a8eaf56c5bd3",
     "versionLabel": "0.1",
     "watchapp": {
         "watchface": true
