@@ -13,6 +13,12 @@
     "resources": {
         "media": [
             {
+                "characterRegex": "[0-9:]",
+                "file": "fonts/Roboto-Bold.ttf",
+                "name": "FONT_ROBOTO_40",
+                "type": "font"
+            },
+            {
                 "file": "images/capnion.png",
                 "name": "IMAGE_CAPNION",
                 "type": "png"

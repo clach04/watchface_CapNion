@@ -14,10 +14,11 @@
 
 #include <pebble.h>
 
-    
 #define BG_IMAGE RESOURCE_ID_IMAGE_CAPNION
 
-#define CLOCK_POS GRect(0, -15, 144, 168) /* probably taller than really needed */
+#define FONT_NAME RESOURCE_ID_FONT_ROBOTO_40
+
+#define CLOCK_POS GRect(0, -8, 144, 168) /* probably taller than really needed */
 #define BT_POS GRect(0, 40, 144, 168) /* probably taller than really needed */
 #define DATE_POS GRect(0, 65, 144, 168) /* probably taller than really needed */
 #define BAT_POS GRect(0, 125, 144, 168) /* probably taller than really needed */
@@ -34,6 +35,7 @@ static TextLayer *s_date_layer=NULL;
 static TextLayer *s_battery_layer=NULL;
 static TextLayer *s_bluetooth_layer=NULL;
 
+static GFont       s_time_font;
 static BitmapLayer *s_background_layer=NULL;
 static GBitmap     *s_background_bitmap=NULL;
 /* For colors, see http://developer.getpebble.com/tools/color-picker/#0000FF */
@@ -267,8 +269,11 @@ static void main_window_load(Window *window) {
     text_layer_set_text_color(s_time_layer, time_color);
     text_layer_set_text(s_time_layer, "00:00");
 
+    // Create GFont
+    s_time_font = fonts_load_custom_font(resource_get_handle(FONT_NAME));
+
     // Apply to TextLayer
-    text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49));
+    text_layer_set_font(s_time_layer, s_time_font);
     /* Consider GTextAlignmentLeft (with monospaced font) in cases where colon is proportional */
     text_layer_set_text_alignment(s_time_layer, GTextAlignmentRight);
 
@@ -289,6 +294,9 @@ static void main_window_unload(Window *window) {
     cleanup_bluetooth();
     cleanup_battery();
     cleanup_date();
+
+    /* Unload GFonts */
+    fonts_unload_custom_font(s_time_font);
 
     /* Destroy GBitmap */
     gbitmap_destroy(s_background_bitmap);
