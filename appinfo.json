@@ -13,14 +13,14 @@
     "resources": {
         "media": [
             {
-                "file": "images/capnion_icon.png",
-                "menuIcon": true,
-                "name": "IMAGE_ICON",
+                "file": "images/capnion.png",
+                "name": "IMAGE_CAPNION",
                 "type": "png"
             },
             {
-                "file": "images/capnion.png",
-                "name": "IMAGE_CAPNION",
+                "file": "images/capnion_icon.png",
+                "menuIcon": true,
+                "name": "IMAGE_ICON",
                 "type": "png"
             }
         ]
