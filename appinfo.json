@@ -28,6 +28,11 @@
                 "menuIcon": true,
                 "name": "IMAGE_ICON",
                 "type": "png"
+            },
+            {
+                "file": "images/capnion.png",
+                "name": "IMAGE_CAPNION",
+                "type": "png"
             }
         ]
     },
