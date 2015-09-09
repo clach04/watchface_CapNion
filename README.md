@@ -1,4 +1,6 @@
-# Cap'nion- a Pebble watchface
+# ![](resources/images/capnion_icon~color.png) Cap'nion- a Pebble watchface
+
+![](screenshots/basalt_emu_screenshot_001.png)
 
 Basic digital watch face for the Pebble Time (Basalt only) smartwatch. Features:
   * Updates once per minute
