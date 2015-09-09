@@ -11,4 +11,4 @@ Acknowledgements
   * Images based on drawings from IntroSpect37 http://introspect37.deviantart.com/art/Minion-Avengers-301405328
   * html/js for color configuration based on code by https://github.com/rgarth and Slate https://github.com/pebble/slate
 
-No Store URL yet.
+Store URL https://apps.getpebble.com/en_US/application/55ef9806dd0987a7c7000079
