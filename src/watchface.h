@@ -24,6 +24,18 @@
 #endif /* BAT_FMT_STR */
 #define MAX_BAT_STR "Bat: ??%"  // When Battery is 100, the percent symbol is deliberately not shown (buffer full/truncated)
 
+#ifndef FONT_BT_SYSTEM_NAME
+#define FONT_BT_SYSTEM_NAME FONT_KEY_GOTHIC_18
+#endif /* FONT_BT_SYSTEM_NAME */
+
+#ifndef FONT_DATE_SYSTEM_NAME
+#define FONT_DATE_SYSTEM_NAME FONT_KEY_GOTHIC_18_BOLD
+#endif /* FONT_DATE_SYSTEM_NAME */
+
+#ifndef FONT_BAT_SYSTEM_NAME
+#define FONT_BAT_SYSTEM_NAME FONT_KEY_GOTHIC_18
+#endif /* FONT_BAT_SYSTEM_NAME */
+
 #ifndef FONT_SYSTEM_NAME
 /*
 ** Also consider FONT_KEY_BITHAM_42_BOLD, FONT_KEY_ROBOTO_CONDENSED_21
@@ -38,6 +50,10 @@
 #ifndef BAT_ALIGN
 #define BAT_ALIGN GTextAlignmentLeft
 #endif /* BAT_ALIGN */
+
+#ifndef DATE_ALIGN
+#define DATE_ALIGN GTextAlignmentRight
+#endif /* TIME_ALIGN */
 
 #ifndef TIME_ALIGN
 #define TIME_ALIGN GTextAlignmentCenter
@@ -55,6 +71,10 @@
 #define TICK_HANDLER tick_handler
 #endif /* TICK_HANDLER */
 
+#ifndef DEBUG_TICK_HANDLER
+#define DEBUG_TICK_HANDLER debug_tick_handler
+#endif /* DEBUG_TICK_HANDLER */
+
 #ifndef MAIN_WINDOW_LOAD
 #define MAIN_WINDOW_LOAD main_window_load
 #endif /* MAIN_WINDOW_LOAD */
@@ -62,6 +82,10 @@
 #ifndef MAIN_WINDOW_UNLOAD
 #define MAIN_WINDOW_UNLOAD main_window_unload
 #endif /* MAIN_WINDOW_UNLOAD */
+
+#ifndef BG_IMAGE_GRECT
+#define BG_IMAGE_GRECT GRectZero
+#endif /* BG_IMAGE_GRECT */
 
 
 extern Window    *main_window;
