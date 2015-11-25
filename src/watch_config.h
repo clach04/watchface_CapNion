@@ -11,6 +11,7 @@
 #define BLUETOOTH_DISCONNECTED_STR "No BT"
 #define BAT_FMT_STR "Bat:\n%d%%"
 #define DATE_FMT_STR "%a\n%d %b"  /* TODO review %d for day */
+#define MAX_DATE_STR "Thu\n00 Aug"  /* if custom version of DATE_FMT_STR is set, MAX_DATE_STR  needs to be updated too */
 
 #define BT_ALIGN GTextAlignmentRight
 #define BAT_ALIGN GTextAlignmentRight
