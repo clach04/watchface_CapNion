@@ -14,8 +14,8 @@
 
 #ifndef DATE_FMT_STR
 #define DATE_FMT_STR "%a, %d %b"  /* TODO review %d for day */
+#define MAX_DATE_STR "Thu, 00 Aug"  /* if custom version of DATE_FMT_STR is set, MAX_DATE_STR  needs to be updated too */
 #endif /* DATE_FMT_STR */
-#define MAX_DATE_STR "Thu, 00 Aug"
 
 #define MAX_TIME_STR "00:00"
 
@@ -82,11 +82,6 @@
 #ifndef MAIN_WINDOW_UNLOAD
 #define MAIN_WINDOW_UNLOAD main_window_unload
 #endif /* MAIN_WINDOW_UNLOAD */
-
-#ifndef BG_IMAGE_GRECT
-#define BG_IMAGE_GRECT GRectZero
-#endif /* BG_IMAGE_GRECT */
-
 
 extern Window    *main_window;
 extern TextLayer *time_layer;

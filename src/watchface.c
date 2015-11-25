@@ -190,7 +190,11 @@ void setup_date(Window *window)
     text_layer_set_text(date_layer, MAX_DATE_STR);
 
     /* Apply to TextLayer */
+#ifdef USE_TIME_FONT_FOR_DATE
+    text_layer_set_font(date_layer, time_font);
+#else
     text_layer_set_font(date_layer, fonts_get_system_font(FONT_DATE_SYSTEM_NAME));
+#endif /*  USE_TIME_FONT_FOR_DATE */
     text_layer_set_text_alignment(date_layer, DATE_ALIGN);
 
     // Add it as a child layer to the Window's root layer
@@ -309,7 +313,11 @@ void main_window_load(Window *window) {
     window_set_background_color(window, background_color);
 
 #ifdef BG_IMAGE
-    setup_bg_image(window, BG_IMAGE, BG_IMAGE_GRECT);
+    #ifdef BG_IMAGE_GRECT
+        setup_bg_image(window, BG_IMAGE, BG_IMAGE_GRECT);
+    else /* BG_IMAGE_GRECT */
+        setup_bg_image(window, BG_IMAGE, GRectZero);
+    #endif /* BG_IMAGE_GRECT */
 #endif /* BG_IMAGE */
 
     // Create time TextLayer
@@ -420,9 +428,20 @@ void in_recv_handler(DictionaryIterator *iterator, void *context)
                 persist_write_int(KEY_TIME_COLOR, config_time_color);
                 time_color = COLOR_FALLBACK(GColorFromHEX(config_time_color), GColorWhite);
                 text_layer_set_text_color(time_layer, time_color);
-                text_layer_set_text_color(date_layer, time_color);
-                text_layer_set_text_color(battery_layer, time_color);
-                text_layer_set_text_color(bluetooth_layer, time_color);
+
+                if (date_layer) /* or #ifndef NO_DATE */
+                {
+                    text_layer_set_text_color(date_layer, time_color);
+                }
+                if (battery_layer)
+                {
+                    text_layer_set_text_color(battery_layer, time_color);
+                }
+                if (bluetooth_layer)
+                {
+                    text_layer_set_text_color(bluetooth_layer, time_color);
+                }
+                APP_LOG(APP_LOG_LEVEL_DEBUG, "TIME COLOR DONE");
                 break;
 
             case KEY_BACKGROUND_COLOR:
@@ -432,6 +451,7 @@ void in_recv_handler(DictionaryIterator *iterator, void *context)
                 persist_write_int(KEY_BACKGROUND_COLOR, config_background_color);
                 background_color = COLOR_FALLBACK(GColorFromHEX(config_background_color), GColorWhite); // FIXME Aplite colors inverted?
                 window_set_background_color(main_window, background_color);
+                APP_LOG(APP_LOG_LEVEL_DEBUG, "BACKGROUND COLOR DONE");
                 break;
 
             case KEY_VIBRATE_ON_DISCONNECT:
